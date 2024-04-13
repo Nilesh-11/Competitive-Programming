@@ -1,0 +1,27 @@
+{
+	"Policy based data structures": {
+		"prefix": "pbds",
+		"body": [
+		  "/*-------------------------------------------------------------------------------------------------------------------------------*/",
+		  "#include <ext/pb_ds/assoc_container.hpp> // Common file",
+		  "#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update",
+		  "using namespace __gnu_pbds;",
+		  "typedef tree<",
+		  "int,// key type",
+		  "null_type,// mapped-policy",
+		  "less<int>,// key-comparison factor",
+		  "rb_tree_tag,// which underlying data structure to use",
+		  "tree_order_statistics_node_update>// specifies whether additional information is to be stored in the vertices.",
+		  "indexed_set;",
+		  "",
+		  "/*====================================================================",
+		  "complexities depend on policies choosen, for ordered set :-",
+		  "set_name.insert(value);         // logn ",
+		  "set_name.find_by_order(k);      // logn , 0-based kth largest element",
+		  "set_name.order_of_key(value);   // logn , # strictly smaller than value",
+		  "=====================================================================*/",
+		  "/*---------------------------------------------------------------------------------------------------------------------------------*/"
+		],
+		"description": "Policy based data structures"
+	  }
+}

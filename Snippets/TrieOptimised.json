@@ -1,0 +1,36 @@
+{
+	"efficent, explicit features": {
+		"prefix": "Trie_warray",
+		"body": [
+		  "class Trie{",
+		  "public:",
+		  "    vector<vector<int>> arr;",
+		  "    int max_node;",
+		  "    Trie(int n = 1e5){",
+		  "        arr.resize(n, vector<int> (26));",
+		  "        max_node = 1;",
+		  "    }",
+		  "    void insert(string s){",
+		  "        int node = 1;",
+		  "        for(int i = 0; i < s.size(); i++){",
+		  "            if(!arr[node][s[i]-'a']){",
+		  "                arr[node][s[i]-'a'] = ++max_node;",
+		  "            }",
+		  "            node = arr[node][s[i]-'a'];",
+		  "        }",
+		  "        return;",
+		  "    }",
+		  "",
+		  "    bool search(string s){",
+		  "        int node = 1;",
+		  "        for(int i = 0; i < s.size(); i++){",
+		  "            if(arr[node][s[i]-'a'] == 0) return 0;",
+		  "            node = arr[node][s[i]-'a'];",
+		  "        }",
+		  "        return 1;",
+		  "    }",
+		  "};"
+		],
+		"description": "efficent, explicit features"
+	  }
+}
