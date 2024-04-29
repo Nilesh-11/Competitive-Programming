@@ -1,9 +1,16 @@
 {
-	"Competitive Programming": {
+	"Basic I/O": {
 		"prefix": "compete",
 		"body": [
 		  "#include <bits/stdc++.h>",
 		  "using namespace std;",
+		  "",
+		  "#ifndef ONLINE_JUDGE",
+		  "#include \"debug.h\"",
+		  "#define debug(...) cerr << \"Line:\" << __LINE__ << \" [\" << #__VA_ARGS__ << \"] = [\"; _print(__VA_ARGS__)",
+		  "#else",
+		  "#define debug(...)",
+		  "#endif",
 		  "",
 		  "#define  IOS 	      ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
 		  "#define  ll  	      long long",
@@ -24,15 +31,15 @@
 		  "const ll INF = 3e18 + 5;",
 		  "",
 		  "int main(){",
-		  "	",
-		  "	IOS;",
-		  "	ll tc; cin>>tc;",
-		  "	while(tc--){",
-		  "		",
-		  "	}",
+		  "",
+		  "    IOS;",
+		  "    ll tc; cin>>tc;",
+		  "    while(tc--){",
+		  "        ",
+		  "    }",
 		  "",
 		  "}"
 		],
-		"description": "Competitive Programming"
+		"description": "Basic I/O"
 	  }
 }
