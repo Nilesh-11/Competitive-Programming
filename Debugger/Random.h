@@ -3,6 +3,7 @@
 
 #include<bits/stdc++.h>
 using namespace std;
+
 int RandomNum(int min, int max);
 
 #endif

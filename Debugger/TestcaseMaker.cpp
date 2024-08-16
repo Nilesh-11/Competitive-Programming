@@ -1,16 +1,11 @@
 #include<bits/stdc++.h>
 #include "TreeGenerator.h"
 #include "ArrayGenerator.h"
+#include "StringGenerator.h"
+#include "Random.h"
 using namespace std;
 
-#define ll long long
-
-int RandomNum(int min, int max){
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> distrib(min, max);
-    return distrib(gen);
-}
+#define ll long long;
 
 int main(){
 
@@ -21,23 +16,14 @@ int main(){
         return 1;
     }
 
-    int max_n = 50;
     srand(time(0));
-    int nodes = RandomNum(3, max_n);
-    outfile << 1 << '\n';
-    outfile << nodes << '\n';
-    vector<int> a = STLRandomArray(nodes);
-    vector<int> v = {a[0], a[1], a[2]};
-    for(int i = 0; i < v.size(); i++){
-        if(i == (int)v.size() - 1){
-            outfile << v[i] << '\n';
-        }
-        else outfile << v[i] << ' ';
-    }
-    vector<pair<int, int>> edges =  SimpleRandomTreeGenerator(nodes);
-    for(int i = 0; i < edges.size(); i++){
-        outfile << edges[i].first << ' ' << edges[i].second << '\n';
-    }
 
+    // write everything below this line
+
+    cout << "10\n";
+    for(int i = 0; i < 10; i++){
+        string nodes = SimpleRandomizedString(3, 1, 1, 1, {});
+        cout << nodes << '\n';
+    }
     return 0;
 }
