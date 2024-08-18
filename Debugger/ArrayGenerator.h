@@ -3,6 +3,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> STLRandomArray(int n);
+vector<int> STLRandomPermutation(int length, int start);
 
 #endif

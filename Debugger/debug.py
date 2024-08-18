@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     print("Compiling and testing ... ", end='')
     # Compile the testcase generator and both test programs
-    compile_testcase_result = run_command(f'g++ {cpp_testcase} Random.cpp TreeGenerator.cpp ArrayGenerator.cpp StringGenerator.cpp -o zout_{os.path.splitext(cpp_testcase)[0]}')
+    compile_testcase_result = run_command(f'g++ {cpp_testcase} Random.cpp TreeGenerator.cpp ArrayGenerator.cpp GraphGenerator.cpp StringGenerator.cpp -o zout_{os.path.splitext(cpp_testcase)[0]}')
 
     # test commands to handle errors
     result_ = run_cpp(cpp_testcase)
@@ -46,6 +46,9 @@ if __name__ == "__main__":
     for i in range(testcases):
         print(f"Testcase {i+1} ... ", end='')
         testcase_output = run_cpp(cpp_testcase)
+        if os.stat(txt_testcase).st_size == 0:
+            print("File is empty")
+            exit()
 
         test_result = run_cpp(cpp_test)
 

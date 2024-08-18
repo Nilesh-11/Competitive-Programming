@@ -2,6 +2,7 @@
 #include "TreeGenerator.h"
 #include "ArrayGenerator.h"
 #include "StringGenerator.h"
+#include "GraphGenerator.h"
 #include "Random.h"
 using namespace std;
 
@@ -18,12 +19,12 @@ int main(){
 
     srand(time(0));
 
-    // write everything below this line
-
-    cout << "10\n";
-    for(int i = 0; i < 10; i++){
-        string nodes = SimpleRandomizedString(3, 1, 1, 1, {});
-        cout << nodes << '\n';
+    // write everything below this line and use "outfile" instead of "cout"
+    outfile << "1\n";
+    outfile << "10 20\n";
+    vector<pair<int,int>> edges = simpleRandomGraph(10, 20, 1);
+    for(auto [x, y] : edges){
+        outfile << x << ' ' << y << '\n';
     }
     return 0;
 }
