@@ -21,10 +21,17 @@ int main(){
 
     // write everything below this line and use "outfile" instead of "cout"
     outfile << "1\n";
-    outfile << "10 20\n";
-    vector<pair<int,int>> edges = simpleRandomGraph(10, 20, 1);
-    for(auto [x, y] : edges){
-        outfile << x << ' ' << y << '\n';
+    int n = RandomNum(1, 8);
+    outfile << n << "\n";
+    vector<int> a = STLRandomPermutation(n, 1);
+    vector<int> b = a;
+    random_shuffle(b.begin(), b.end());
+    for(auto x : a){
+        outfile << x << ' ';
+    }
+    outfile << '\n';
+    for(auto x : b){
+        outfile << x << ' ';
     }
     return 0;
 }

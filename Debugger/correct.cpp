@@ -1,42 +1,69 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-#ifndef ONLINE_JUDGE
-#include "debug.h"
-#define debug(...) cerr << "Line:" << __LINE__ << " [" << #__VA_ARGS__ << "] = ["; _print(__VA_ARGS__)
-#else
-#define debug(...)
-#endif
+using i64 = long long;
 
-#define  IOS 	      ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define  ll  	      long long
-#define  rep(i,a,b)   for(ll i = a ; i < b ; i ++)
-#define  Rep(i,a,b)   for(ll i = a ; i >= b ; i --)
-#define  fi  	      first
-#define  se  	      second
-#define  pb  	      push_back
-#define  pf  	      push_front
-#define  mk  	      make_pair
-#define  vi  	      vector<ll>
-#define  pi  	      pair<ll,ll>
-#define  vp  	      vector<pi>
-#define  vvp  	      vector<vp>
-#define  vv  	      vector<vi>
-#define  all(v)  	  v.begin(),v.end()
-const ll MOD = 1000000007;
-const ll INF = 3e18 + 5;
+int parity(const std::vector<int> &a) {
+    const int n = a.size();
+    std::vector<bool> vis(n);
+    int p = n % 2;
+    for (int i = 0; i < n; i++) {
+        if (vis[i]) {
+            continue;
+        }
+        for (int j = i; !vis[j]; j = a[j]) {
+            vis[j] = true;
+        }
+        p ^= 1;
+    }
+    return p;
+}
 
-int main(){
+void solve() {
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> a[i];
+        a[i]--;
+    }
+    for (int i = 0; i < n; i++) {
+        std::cin >> b[i];
+        b[i]--;
+    }
+    auto va = a, vb = b;
+    std::sort(va.begin(), va.end());
+    std::sort(vb.begin(), vb.end());
+    if (va != vb) {
+        std::cout << "NO\n";
+        return;
+    }
+    for (int i = 0; i < n; i++) {
+        a[i] = std::lower_bound(va.begin(), va.end(), a[i]) - va.begin();
+    }
+    for (int i = 0; i < n; i++) {
+        b[i] = std::lower_bound(vb.begin(), vb.end(), b[i]) - vb.begin();
+    }
+    if (parity(a) != parity(b)) {
+        std::cout << "NO\n";
+    } else {
+        std::cout << "YES\n";
+    }
+}
+
+int main() {
     #ifndef ONLINE_JUDGE
         freopen("testcase.txt", "r", stdin);
     #endif
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     
-    IOS;
-    ll tc; cin>>tc;
-    while(tc--){
-        string n;
-        cin >> n;
-        cout << n + '1' << '\n';
+    int t;
+    std::cin >> t;
+    
+    while (t--) {
+        solve();
     }
-
+    
+    return 0;
 }

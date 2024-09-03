@@ -28,7 +28,7 @@ if __name__ == "__main__":
     cpp_correct = 'correct.cpp'
     cpp_testcase = 'TestcaseMaker.cpp'
     txt_testcase = 'testcase.txt'
-    testcases = 10
+    testcases = 1000
 
     print("Compiling and testing ... ", end='')
     # Compile the testcase generator and both test programs
